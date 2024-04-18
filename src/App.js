@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React from 'react'
+import Header from './components/Header.js';
+import Balance from './components/Balance.js';
+import RemainScore from './components/RemainScore.js';
+import ScoreList from './components/ScoreList.js';
+import AddScore from './components/AddScore.js';
+import AddGame from './components/AddGame.js';
+import GameInfo from './components/GameInfor.js';
+
+import { GlobalProvider } from './context/GlobalState.js';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider>
+      <Header />
+      <div className="container-left">
+        <AddGame />
+        <GameInfo />
+      </div>
+      <div className="container-right">
+        <Balance />
+        <RemainScore />
+        <ScoreList />
+        <AddScore />
+      </div>
+    </GlobalProvider>
   );
 }
 
